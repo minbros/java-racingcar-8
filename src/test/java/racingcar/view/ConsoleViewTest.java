@@ -43,6 +43,16 @@ class ConsoleViewTest {
     }
 
     @Test
+    void 횟수_입력받기() {
+        String input = "3\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        String count = view.readCount();
+
+        assertThat(count).isEqualTo("3");
+    }
+
+    @Test
     void 게임_진행_출력() {
         Car car1 = new Car("min", 2);
         Car car2 = new Car("bros", 3);
