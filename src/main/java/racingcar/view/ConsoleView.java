@@ -27,8 +27,11 @@ public class ConsoleView {
         }
     }
 
-    public void printResult(List<Car> winners) {
-
+    public void printResult(List<Car> winningCars) {
+        String message = "최종 우승자 : ";
+        List<String> winningNames = winningCars.stream().map(Car::getName).toList();
+        message += String.join(", ", winningNames);
+        System.out.println(message);
     }
 
     private static String getProgress(Car car) {
