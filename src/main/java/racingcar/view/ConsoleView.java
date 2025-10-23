@@ -5,9 +5,6 @@ import racingcar.domain.Car;
 import java.util.List;
 
 public class ConsoleView {
-    public ConsoleView() {
-    }
-
     public String read() {
         return null;
     }
