@@ -37,7 +37,7 @@ class ConsoleViewTest {
         String input = "hi,min\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        String result = view.read();
+        String result = view.readCarNames();
 
         assertThat(result).isEqualTo("hi,min");
     }
