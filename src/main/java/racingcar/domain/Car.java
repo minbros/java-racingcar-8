@@ -33,7 +33,7 @@ public class Car {
 
     private static void validateFields(String name, int position) {
         if (name == null || name.isBlank()) {
-            throw new IllegalArgumentException(ErrorMessage.NAME_CANNOT_BE_NULL_OR_BLANK.getMessage());
+            throw new IllegalArgumentException(ErrorMessage.NAME_CANNOT_BE_BLANK.getMessage());
         }
         if (!NAME_PATTERN.matcher(name).matches()) {
             throw new IllegalArgumentException(ErrorMessage.NAME_MUST_CONTAIN_ONLY_ALPHABETS_AND_NUMBERS.getMessage());

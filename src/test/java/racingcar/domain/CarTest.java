@@ -35,7 +35,7 @@ class CarTest {
 
         assertThatThrownBy(() -> new Car(name))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.NAME_CANNOT_BE_NULL_OR_BLANK.getMessage());
+                .hasMessageContaining(ErrorMessage.NAME_CANNOT_BE_BLANK.getMessage());
     }
 
     @Test
