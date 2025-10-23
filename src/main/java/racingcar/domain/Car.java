@@ -29,6 +29,7 @@ public class Car {
     }
 
     public void move() {
+        position++;
     }
 
     private static void validateFields(String name, int position) {
