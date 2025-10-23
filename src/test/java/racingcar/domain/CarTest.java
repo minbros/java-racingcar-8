@@ -63,4 +63,14 @@ class CarTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.POSITION_CANNOT_BE_NEGATIVE.getMessage());
     }
+
+    @Test
+    void 전진_성공_여부_확인() {
+        int position = 2;
+        Car car = new Car("test", position);
+
+        car.move();
+
+        assertThat(car.getPosition()).isEqualTo(position + 1);
+    }
 }
