@@ -33,7 +33,7 @@ class ConsoleViewTest {
     }
 
     @Test
-    void 유저_입력_받기() {
+    void 이름_입력받기() {
         String input = "hi,min\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
