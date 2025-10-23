@@ -21,10 +21,19 @@ public class ConsoleView {
     }
 
     public void printProgress(List<Car> cars) {
-
+        for (Car car : cars) {
+            String progress = getProgress(car);
+            System.out.println(progress);
+        }
     }
 
     public void printResult(List<Car> winners) {
 
+    }
+
+    private static String getProgress(Car car) {
+        String name = car.getName();
+        int position = car.getPosition();
+        return name + " : " + "-".repeat(position);
     }
 }
