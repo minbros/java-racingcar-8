@@ -33,22 +33,14 @@ class ConsoleViewTest {
     }
 
     @Test
-    void 이름_입력받기() {
-        String input = "hi,min\n";
+    void 이름_및_횟수_입력받기() {
+        String input = "hi,min\n3\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        String result = view.readCarNames();
-
-        assertThat(result).isEqualTo("hi,min");
-    }
-
-    @Test
-    void 횟수_입력받기() {
-        String input = "3\n";
-        System.setIn(new ByteArrayInputStream(input.getBytes()));
-
+        String names = view.readCarNames();
         String count = view.readCount();
 
+        assertThat(names).isEqualTo("hi,min");
         assertThat(count).isEqualTo("3");
     }
 
