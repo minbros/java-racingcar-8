@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.test.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
@@ -9,6 +10,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingServiceTest {
     private RacingService service;
+
+    private static final int FORWARD = 4;
+    private static final int STOP = 3;
 
     @BeforeEach
     void setUp() {
@@ -38,5 +42,19 @@ class RacingServiceTest {
         service.addCar(car2);
 
         assertThat(service.getWinningCars()).containsOnly(car2);
+    }
+
+    @Test
+    void 게임_정상_진행_확인() {
+        Car car1 = new Car("min");
+        Car car2 = new Car("bros");
+
+        service.addCar(car1);
+        service.addCar(car2);
+
+        Assertions.assertRandomNumberInRangeTest(() -> service.playGame(2), FORWARD, FORWARD, FORWARD, STOP);
+        assertThat(service.getCars().getFirst().getPosition()).isEqualTo(2);
+        assertThat(service.getCars().get(1).getPosition()).isEqualTo(1);
+        assertThat(service.getWinningCars()).containsOnly(car1);
     }
 }
