@@ -16,14 +16,14 @@ public class RacingService {
     }
 
     public void addCar(Car car) {
-
+        cars.add(car);
     }
 
     public List<Car> getCars() {
-        return List.of();
+        return cars.get();
     }
 
     public List<Car> getWinningCars() {
-        return List.of();
+        return cars.getWinningCars();
     }
 }
