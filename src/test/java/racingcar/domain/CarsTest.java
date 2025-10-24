@@ -54,4 +54,18 @@ class CarsTest {
         assertThat(carList.getFirst().getPosition()).isEqualTo(1);
         assertThat(carList.get(1).getPosition()).isZero();
     }
+
+    @Test
+    void 자동차_전체_이동_예외_확인() {
+        Car car1 = new Car("min");
+        Car car2 = new Car("bros");
+
+        cars.add(car1);
+        cars.add(car2);
+        List<Integer> randomValues = List.of(FORWARD, FORWARD, STOP);
+
+        assertThatThrownBy(() -> cars.moveAll(randomValues))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS.getMessage());
+    }
 }
