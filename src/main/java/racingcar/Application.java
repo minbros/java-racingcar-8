@@ -1,13 +1,14 @@
 package racingcar;
 
 import racingcar.controller.RacingController;
+import racingcar.domain.Cars;
 import racingcar.service.RacingService;
 import racingcar.view.ConsoleView;
 
 public class Application {
     public static void main(String[] args) {
         ConsoleView consoleView = new ConsoleView();
-        RacingService racingService = new RacingService();
+        RacingService racingService = new RacingService(new Cars());
         RacingController racingController = new RacingController(consoleView, racingService);
         racingController.run();
     }
