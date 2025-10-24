@@ -6,8 +6,7 @@ import racingcar.constant.ErrorMessage;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 class CarsTest {
     private Cars cars;
@@ -67,5 +66,27 @@ class CarsTest {
         assertThatThrownBy(() -> cars.moveAll(randomValues))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS.getMessage());
+    }
+
+    @Test
+    void 최종_우승자_확인() {
+        Car car1 = new Car("min", 3);
+        Car car2 = new Car("bros", 8);
+
+        cars.add(car1);
+        cars.add(car2);
+
+        assertThat(cars.getWinningCars()).containsOnly(car2);
+    }
+
+    @Test
+    void 공동_우승자_확인() {
+        Car car1 = new Car("min", 3);
+        Car car2 = new Car("bros", 3);
+
+        cars.add(car1);
+        cars.add(car2);
+
+        assertThat(cars.getWinningCars()).containsExactly(car1, car2);
     }
 }

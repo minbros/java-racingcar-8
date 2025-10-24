@@ -20,6 +20,20 @@ public class Cars {
         return List.copyOf(carList);
     }
 
+    public List<Car> getWinningCars() {
+        if (carList.isEmpty()) {
+            return List.of();
+        }
+        int maxPosition = carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
+
+        return carList.stream()
+                .filter(car -> car.getPosition() == maxPosition)
+                .toList();
+    }
+
     public void moveAll(List<Integer> randomValues) {
         if (carList.size() != randomValues.size()) {
             throw new IllegalArgumentException(ErrorMessage.NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS.getMessage());
