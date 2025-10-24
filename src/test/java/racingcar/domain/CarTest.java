@@ -9,6 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CarTest {
+    private static final int FORWARD = 4;
+    private static final int STOP = 3;
+
     @Test
     void 정상_생성_확인() {
         String name = "min";
@@ -65,12 +68,22 @@ class CarTest {
     }
 
     @Test
-    void 전진_성공_여부_확인() {
+    void 전진_여부_확인() {
         int position = 2;
         Car car = new Car("test", position);
 
-        car.move();
+        car.move(FORWARD);
 
         assertThat(car.getPosition()).isEqualTo(position + 1);
+    }
+
+    @Test
+    void 정지_여부_확인() {
+        int position = 1;
+        Car car = new Car("test", position);
+
+        car.move(STOP);
+
+        assertThat(car.getPosition()).isEqualTo(position);
     }
 }
