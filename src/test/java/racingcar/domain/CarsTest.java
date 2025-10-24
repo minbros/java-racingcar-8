@@ -12,6 +12,6 @@ class CarsTest {
 
         cars.add(car);
 
-        assertThat(cars.getCars()).contains(car);
+        assertThat(cars.get()).contains(car);
     }
 }
