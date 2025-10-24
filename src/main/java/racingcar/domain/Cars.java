@@ -21,6 +21,11 @@ public class Cars {
     }
 
     public void moveAll(List<Integer> randomValues) {
-
+        if (carList.size() != randomValues.size()) {
+            throw new IllegalArgumentException(ErrorMessage.NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS.getMessage());
+        }
+        for (int i = 0; i < carList.size(); i++) {
+            carList.get(i).move(randomValues.get(i));
+        }
     }
 }
