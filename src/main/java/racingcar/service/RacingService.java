@@ -1,5 +1,6 @@
 package racingcar.service;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
@@ -13,6 +14,9 @@ public class RacingService {
     }
 
     public void playGame(int count) {
+        for (int i = 0; i < count; i++) {
+            cars.moveAll(generateRandomValues());
+        }
     }
 
     public void addCar(Car car) {
@@ -25,5 +29,11 @@ public class RacingService {
 
     public List<Car> getWinningCars() {
         return cars.getWinningCars();
+    }
+
+    private List<Integer> generateRandomValues() {
+        return getCars().stream()
+                .map(car -> Randoms.pickNumberInRange(0, 9))
+                .toList();
     }
 }
