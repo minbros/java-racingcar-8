@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.constant.ErrorMessage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -18,6 +17,10 @@ public class Cars {
     }
 
     public List<Car> get() {
-        return Collections.unmodifiableList(carList);
+        return List.copyOf(carList);
+    }
+
+    public void moveAll(List<Integer> randomValues) {
+
     }
 }
