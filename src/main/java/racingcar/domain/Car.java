@@ -28,8 +28,10 @@ public class Car {
         return position;
     }
 
-    public void move() {
-        position++;
+    public void move(int randomValue) {
+        if (randomValue >= 4) {
+            position++;
+        }
     }
 
     private static void validateFields(String name, int position) {
