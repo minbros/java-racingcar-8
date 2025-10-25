@@ -20,6 +20,14 @@ class InputParserTest {
         assertThat(names).containsOnly("min", "bros");
     }
 
+    @ParameterizedTest
+    @ValueSource(strings = {"min,bros,", ",min,bros", "     ,     "})
+    void 이름_파싱_예외_확인(String input) {
+        assertThatThrownBy(() -> InputParser.parseNames(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.INVALID_NAME_FORMAT.getMessage());
+    }
+
     @Test
     void 횟수_파싱_확인() {
         String input = "10";
@@ -38,10 +46,10 @@ class InputParserTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"min,bros,", ",min,bros", "     ,     "})
-    void 이름_파싱_예외_확인(String input) {
-        assertThatThrownBy(() -> InputParser.parseNames(input))
+    @ValueSource(strings = {"-1", "0"})
+    void 횟수_양수_여부_확인(String input) {
+        assertThatThrownBy(() -> InputParser.parseCount(input))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining(ErrorMessage.INVALID_NAME_FORMAT.getMessage());
+                .hasMessageContaining(ErrorMessage.COUNT_MUST_BE_POSITIVE.getMessage());
     }
 }

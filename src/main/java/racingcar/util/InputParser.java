@@ -24,7 +24,9 @@ public final class InputParser {
     public static int parseCount(String input) {
         String trimmedInput = input.trim();
         try {
-            return Integer.parseInt(trimmedInput);
+            int count = Integer.parseInt(trimmedInput);
+            if (count <= 0) throw new IllegalArgumentException(ErrorMessage.COUNT_MUST_BE_POSITIVE.getMessage());
+            return count;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.COUNT_IS_NOT_IN_INT_RANGE.getMessage());
         }

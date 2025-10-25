@@ -2,8 +2,8 @@ package racingcar.constant;
 
 public enum ErrorMessage {
     // Car 객체 생성자 관련
-    NAME_CANNOT_BE_MORE_THAN_5_CHARACTERS("이름은 5자 이하여야 합니다."),
     NAME_CANNOT_BE_BLANK("이름은 공백일 수 없습니다."),
+    NAME_CANNOT_BE_MORE_THAN_5_CHARACTERS("이름은 5자 이하여야 합니다."),
     NAME_MUST_CONTAIN_ONLY_ALPHABETS_AND_NUMBERS("이름에는 알파벳이나 숫자만 넣을 수 있습니다."),
     POSITION_CANNOT_BE_NEGATIVE("위치 값이 음수일 수 없습니다."),
 
@@ -13,6 +13,7 @@ public enum ErrorMessage {
 
     // InputParser 객체 관련
     COUNT_IS_NOT_IN_INT_RANGE("횟수가 int 범위에 맞지 않습니다."),
+    COUNT_MUST_BE_POSITIVE("횟수 값은 양수여야 합니다."),
     INVALID_NAME_FORMAT("이름 구분자의 위치가 잘못되었습니다.");
 
     private final String message;
