@@ -39,6 +39,7 @@ public class RacingController {
     }
 
     private void playRounds(int count) {
+        view.printStart();
         for (int i = 0; i < count; i++) {
             service.playOneRound();
             view.printProgress(service.getCars());
