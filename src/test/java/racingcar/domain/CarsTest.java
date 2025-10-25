@@ -25,7 +25,7 @@ class CarsTest {
 
         cars.add(car);
 
-        assertThat(cars.get()).contains(car);
+        assertThat(cars.getAll()).contains(car);
     }
 
     @Test
@@ -48,7 +48,7 @@ class CarsTest {
         cars.add(car1);
         cars.add(car2);
         cars.moveAll(List.of(FORWARD, STOP));
-        List<Car> carList = cars.get();
+        List<Car> carList = cars.getAll();
 
         assertThat(carList.getFirst().getPosition()).isEqualTo(1);
         assertThat(carList.get(1).getPosition()).isZero();

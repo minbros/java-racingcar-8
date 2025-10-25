@@ -19,7 +19,7 @@ public class Cars {
         names.add(car.getName());
     }
 
-    public List<Car> get() {
+    public List<Car> getAll() {
         return List.copyOf(carList);
     }
 
