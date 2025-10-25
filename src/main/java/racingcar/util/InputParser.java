@@ -10,9 +10,15 @@ public final class InputParser {
     }
 
     public static List<String> parseNames(String input) {
-        return Arrays.stream(input.split(","))
+        List<String> names = Arrays.stream(input.split(",", -1))
                 .map(String::trim)
                 .toList();
+
+        if (names.stream().anyMatch(String::isBlank)) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_NAME_FORMAT.getMessage());
+        }
+
+        return names;
     }
 
     public static int parseCount(String input) {
