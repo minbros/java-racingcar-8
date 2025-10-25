@@ -1,5 +1,8 @@
 package racingcar.controller;
 
+import racingcar.constant.ErrorMessage;
+
+import java.util.Arrays;
 import java.util.List;
 
 public final class InputParser {
@@ -7,10 +10,17 @@ public final class InputParser {
     }
 
     public static List<String> parseNames(String input) {
-        return List.of();
+        return Arrays.stream(input.split(","))
+                .map(String::trim)
+                .toList();
     }
 
     public static int parseCount(String input) {
-        return 0;
+        String trimmedInput = input.trim();
+        try {
+            return Integer.parseInt(trimmedInput);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(ErrorMessage.COUNT_IS_NOT_IN_INT_RANGE.getMessage());
+        }
     }
 }

@@ -9,7 +9,10 @@ public enum ErrorMessage {
 
     // Cars 객체 관련
     DUPLICATE_CAR_NAMES("자동차 이름은 중복될 수 없습니다."),
-    NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS("자동차의 개수와 랜덤 값의 개수가 다릅니다.");
+    NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS("자동차의 개수와 랜덤 값의 개수가 다릅니다."),
+
+    // InputParser 객체 관련
+    COUNT_IS_NOT_IN_INT_RANGE("횟수가 int 범위에 맞지 않습니다.");
 
     private final String message;
 
