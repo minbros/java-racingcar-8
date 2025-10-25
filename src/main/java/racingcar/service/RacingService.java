@@ -13,10 +13,8 @@ public class RacingService {
         this.cars = cars;
     }
 
-    public void playGame(int count) {
-        for (int i = 0; i < count; i++) {
-            cars.moveAll(generateRandomValues());
-        }
+    public void playOneRound() {
+        cars.moveAll(generateRandomValues());
     }
 
     public void addCar(Car car) {

@@ -52,9 +52,9 @@ class RacingServiceTest {
         service.addCar(car1);
         service.addCar(car2);
 
-        Assertions.assertRandomNumberInRangeTest(() -> service.playGame(2), FORWARD, FORWARD, FORWARD, STOP);
-        assertThat(service.getCars().getFirst().getPosition()).isEqualTo(2);
-        assertThat(service.getCars().get(1).getPosition()).isEqualTo(1);
+        Assertions.assertRandomNumberInRangeTest(() -> service.playOneRound(), FORWARD, STOP);
+        assertThat(service.getCars().getFirst().getPosition()).isEqualTo(1);
+        assertThat(service.getCars().get(1).getPosition()).isZero();
         assertThat(service.getWinningCars()).containsOnly(car1);
     }
 }
