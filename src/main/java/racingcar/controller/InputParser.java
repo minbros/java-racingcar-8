@@ -2,12 +2,15 @@ package racingcar.controller;
 
 import java.util.List;
 
-public class InputParser {
-    public List<String> parseNames(String input) {
+public final class InputParser {
+    private InputParser() {
+    }
+
+    public static List<String> parseNames(String input) {
         return List.of();
     }
 
-    public int parseCount(String input) {
+    public static int parseCount(String input) {
         return 0;
     }
 }
