@@ -27,11 +27,7 @@ public class Cars {
         if (carList.isEmpty()) {
             return List.of();
         }
-        int maxPosition = carList.stream()
-                .mapToInt(Car::getPosition)
-                .max()
-                .orElse(0);
-
+        int maxPosition = getMaxPosition();
         return carList.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .toList();
@@ -44,5 +40,12 @@ public class Cars {
         for (int i = 0; i < carList.size(); i++) {
             carList.get(i).move(randomValues.get(i));
         }
+    }
+
+    private int getMaxPosition() {
+        return carList.stream()
+                .mapToInt(Car::getPosition)
+                .max()
+                .orElse(0);
     }
 }
