@@ -36,4 +36,12 @@ class InputParserTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining(ErrorMessage.COUNT_IS_NOT_IN_INT_RANGE.getMessage());
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"min,bros,", ",min,bros", "     ,     "})
+    void 이름_파싱_예외_확인(String input) {
+        assertThatThrownBy(() -> InputParser.parseNames(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining(ErrorMessage.INVALID_NAME_FORMAT.getMessage());
+    }
 }

@@ -12,7 +12,8 @@ public enum ErrorMessage {
     NUMBER_OF_RANDOM_VALUES_NOT_EQUALS_NUMBER_OF_CARS("자동차의 개수와 랜덤 값의 개수가 다릅니다."),
 
     // InputParser 객체 관련
-    COUNT_IS_NOT_IN_INT_RANGE("횟수가 int 범위에 맞지 않습니다.");
+    COUNT_IS_NOT_IN_INT_RANGE("횟수가 int 범위에 맞지 않습니다."),
+    INVALID_NAME_FORMAT("이름 구분자의 위치가 잘못되었습니다.");
 
     private final String message;
 
