@@ -15,7 +15,8 @@ public class Car {
     }
 
     public Car(String name, int position) {
-        validateFields(name, position);
+        validateName(name);
+        validatePosition(position);
         this.name = name;
         this.position = position;
     }
@@ -34,7 +35,7 @@ public class Car {
         }
     }
 
-    private static void validateFields(String name, int position) {
+    private static void validateName(String name) {
         if (name == null || name.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.NAME_CANNOT_BE_BLANK.getMessage());
         }
@@ -44,6 +45,9 @@ public class Car {
         if (name.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.NAME_CANNOT_BE_MORE_THAN_5_CHARACTERS.getMessage());
         }
+    }
+
+    private static void validatePosition(int position) {
         if (position < 0) {
             throw new IllegalArgumentException(ErrorMessage.POSITION_CANNOT_BE_NEGATIVE.getMessage());
         }
