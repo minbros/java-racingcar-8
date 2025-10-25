@@ -24,6 +24,27 @@
 - [x] 자동차 전진 기능 구현
 - [x] [예외 발생 상황](#예외-발생-상황)을 바탕으로 자동차 필드 검증
 
+## 디렉토리 구조
+```
+src/main
+`-- java
+    `-- racingcar
+        |-- Application.java
+        |-- constant
+        |   `-- ErrorMessage.java
+        |-- controller
+        |   `-- RacingController.java
+        |-- domain
+        |   |-- Car.java
+        |   `-- Cars.java
+        |-- service
+        |   `-- RacingService.java
+        |-- util
+        |   `-- InputParser.java
+        `-- view
+            `-- ConsoleView.java
+```
+
 ## 예외 발생 상황
 ### Domain
 - [x] 이름이 비어 있거나 공백으로만 구성된 경우
