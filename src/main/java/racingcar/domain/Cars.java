@@ -34,6 +34,12 @@ public class Cars {
         return List.copyOf(carList);
     }
 
+    /**
+     * 가장 많이 이동한 자동차를 반환합니다.
+     * <p>
+     *     가장 많이 이동한 자동차가 여러 대일 경우, 모두 반환합니다.
+     * </p>
+     */
     public List<Car> getWinningCars() {
         if (carList.isEmpty()) {
             return List.of();
