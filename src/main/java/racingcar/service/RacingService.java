@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * 자동차 경주 게임 로직을 담당하는 클래스입니다.
  * <li>cars: 경주에 이용되는 모든 자동차 담당</li>
+ *
  * @see Cars
  */
 public class RacingService {
@@ -21,8 +22,9 @@ public class RacingService {
     /**
      * 한 회만큼 자동차 경주를 진행합니다.
      * <p>
-     *     자동차 개수만큼의 랜덤 값을 생성해 자동차의 이동에 사용합니다.
+     * 자동차 개수만큼의 랜덤 값을 생성해 자동차의 이동에 사용합니다.
      * </p>
+     *
      * @see Cars#moveAll(List)
      */
     public void playOneRound() {
