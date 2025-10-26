@@ -1,5 +1,10 @@
 package racingcar.constant;
 
+/**
+ * 에러 메시지를 상수로 관리하는 enum입니다.
+ * <p>각 상수는 클래스별로 발생 가능한 예외 상황에 대한 메시지를 제공합니다.</p>
+ * <p>같은 클래스에서 발생하는 예외는 알파벳 사전 순으로 정렬됩니다.</p>
+ */
 public enum ErrorMessage {
     // Car 객체 생성자 관련
     NAME_CANNOT_BE_BLANK("이름은 공백일 수 없습니다."),
