@@ -13,7 +13,7 @@ public final class InputParser {
     }
 
     // 이름 구분자
-    private static final String NAME_SEPARATOR = ",";
+    public static final String NAME_SEPARATOR = ",";
 
     /**
      * 입력받은 문자열을 {@value #NAME_SEPARATOR}를 기준으로 구분합니다.
