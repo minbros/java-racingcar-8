@@ -1,8 +1,6 @@
 package racingcar.controller;
 
-import racingcar.domain.Car;
 import racingcar.service.RacingService;
-import racingcar.util.InputParser;
 import racingcar.view.ConsoleView;
 
 import java.util.List;
@@ -35,21 +33,11 @@ public class RacingController {
      * @throws IllegalArgumentException 사용자 입력이 잘못되었을 경우
      */
     public void run() {
-        List<String> names = getCarNamesFromUser();
-        int count = getTryCountFromUser();
+        List<String> names = view.readCarNames();
+        int count = view.readCount();
         registerCars(names);
         playRounds(count);
         printWinners();
-    }
-
-    private List<String> getCarNamesFromUser() {
-        String namesInput = view.readCarNames();
-        return InputParser.parseNames(namesInput);
-    }
-
-    private int getTryCountFromUser() {
-        String countInput = view.readCount();
-        return InputParser.parseCount(countInput);
     }
 
     private void registerCars(List<String> names) {

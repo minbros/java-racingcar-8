@@ -37,11 +37,11 @@ class ConsoleViewTest {
         String input = "hi,min\n3\n";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
-        String names = view.readCarNames();
-        String count = view.readCount();
+        List<String> names = view.readCarNames();
+        int count = view.readCount();
 
-        assertThat(names).isEqualTo("hi,min");
-        assertThat(count).isEqualTo("3");
+        assertThat(names).containsExactly("hi", "min");
+        assertThat(count).isEqualTo(3);
     }
 
     @Test

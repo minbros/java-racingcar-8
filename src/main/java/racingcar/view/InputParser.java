@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.view;
 
 import racingcar.constant.ErrorMessage;
 
@@ -8,12 +8,12 @@ import java.util.List;
 /**
  * 유저 입력을 검증하는 유틸리티 클래스입니다.
  */
-public final class InputParser {
+final class InputParser {
     private InputParser() {
     }
 
     // 이름 구분자
-    public static final String NAME_SEPARATOR = ",";
+    static final String NAME_SEPARATOR = ",";
 
     /**
      * 입력받은 문자열을 {@value #NAME_SEPARATOR}를 기준으로 구분합니다.
@@ -23,7 +23,7 @@ public final class InputParser {
      * @throws IllegalArgumentException 이름의 구분이 잘못된 경우<br>
      *                                  예시: ",min,bros" 또는 "min,bros," 또는 "min,,bros"
      */
-    public static List<String> parseNames(String input) {
+    static List<String> parseNames(String input) {
         List<String> names = Arrays.stream(input.split(NAME_SEPARATOR, -1))
                 .map(String::trim)
                 .toList();
@@ -48,7 +48,7 @@ public final class InputParser {
      *                                      <li>"two"와 같이 숫자를 사용하지 않은 표현일 경우</li>
      *                                  </ul>
      */
-    public static int parseCount(String input) {
+    static int parseCount(String input) {
         String trimmedInput = input.trim();
         try {
             int count = Integer.parseInt(trimmedInput);

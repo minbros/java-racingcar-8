@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.view;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -21,7 +21,7 @@ class InputParserTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"min,bros,", ",min,bros", "     ,     "})
+    @ValueSource(strings = {"min,bros,", ",min,bros", "min,,bros"})
     void 이름_파싱_예외_확인(String input) {
         assertThatThrownBy(() -> InputParser.parseNames(input))
                 .isInstanceOf(IllegalArgumentException.class)
