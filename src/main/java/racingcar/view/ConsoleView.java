@@ -55,10 +55,10 @@ public class ConsoleView {
     /**
      * 각 자동차마다 현재 위치를 포매팅하여 출력합니다.
      * <p>시행 횟수마다 빈 줄로 분리되어 출력합니다.</p>
-     * 출력 예시
+     * <p>출력 예시
      * <pre><code>
      * min : ---
-     * bros : -- </code></pre>
+     * bros : -- </code></pre></p>
      *
      * @param cars 전체 자동차 리스트
      */
