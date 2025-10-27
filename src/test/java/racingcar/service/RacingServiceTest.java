@@ -49,17 +49,21 @@ class RacingServiceTest {
     }
 
     @Test
-    void 게임_정상_진행_확인() {
+    void 한_라운드_정상_진행_확인() {
         String name1 = "min";
         String name2 = "bros";
 
         service.addCar(name1);
         service.addCar(name2);
 
-        Assertions.assertRandomNumberInRangeTest(() -> service.playOneRound(), FORWARD, STOP);
-        assertThat(service.getCars()).extracting(Car::getName, Car::getPosition)
-                .containsExactly(tuple(name1, 1), tuple(name2, 0));
-        assertThat(service.getWinningCars()).extracting(Car::getName, Car::getPosition)
-                .containsExactly(tuple(name1, 1));
+        Assertions.assertRandomNumberInRangeTest(
+                () -> {
+                    service.playOneRound();
+                    assertThat(service.getCars()).extracting(Car::getName, Car::getPosition)
+                            .containsExactly(tuple(name1, 1), tuple(name2, 0));
+                    assertThat(service.getWinningCars()).extracting(Car::getName, Car::getPosition)
+                            .containsExactly(tuple(name1, 1));
+                },
+                FORWARD, STOP);
     }
 }
