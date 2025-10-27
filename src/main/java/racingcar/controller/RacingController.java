@@ -53,7 +53,7 @@ public class RacingController {
     }
 
     private void registerCars(List<String> names) {
-        names.forEach(name -> service.addCar(new Car(name)));
+        names.forEach(service::addCar);
     }
 
     private void playRounds(int count) {

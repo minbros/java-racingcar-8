@@ -35,8 +35,8 @@ public class RacingService {
      * @throws IllegalArgumentException 자동차의 이름이 중복되는 경우
      * @see Cars#add(Car)
      */
-    public void addCar(Car car) {
-        cars.add(car);
+    public void addCar(String name) {
+        addCar(name, 0);
     }
 
     public List<Car> getCars() {
@@ -45,6 +45,10 @@ public class RacingService {
 
     public List<Car> getWinningCars() {
         return cars.getWinningCars();
+    }
+
+    void addCar(String name, int position) {
+        cars.add(new Car(name, position));
     }
 
     private List<Integer> generateRandomValues() {

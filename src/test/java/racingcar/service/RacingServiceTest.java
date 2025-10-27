@@ -6,7 +6,10 @@ import org.junit.jupiter.api.Test;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 class RacingServiceTest {
     private RacingService service;
@@ -26,35 +29,42 @@ class RacingServiceTest {
 
     @Test
     void 자동차_추가_정상_확인() {
-        Car car = new Car("min");
+        String name = "min";
 
-        service.addCar(car);
+        service.addCar(name);
+        List<Car> cars = service.getCars();
 
-        assertThat(service.getCars()).containsOnly(car);
+        assertThat(cars).extracting(Car::getName, Car::getPosition)
+                .containsExactly(tuple(name, 0));
     }
 
     @Test
     void 우승자_정상_확인() {
-        Car car1 = new Car("min", 3);
-        Car car2 = new Car("bros", 4);
+        String name1 = "min";
+        int position1 = 3;
+        String name2 = "bros";
+        int position2 = 4;
 
-        service.addCar(car1);
-        service.addCar(car2);
+        service.addCar(name1, position1);
+        service.addCar(name2, position2);
+        List<Car> winningCars = service.getWinningCars();
 
-        assertThat(service.getWinningCars()).containsOnly(car2);
+        assertThat(winningCars).extracting(Car::getName, Car::getPosition)
+                .containsExactly(tuple(name2, position2));
     }
 
     @Test
     void 게임_정상_진행_확인() {
-        Car car1 = new Car("min");
-        Car car2 = new Car("bros");
+        String name1 = "min";
+        String name2 = "bros";
 
-        service.addCar(car1);
-        service.addCar(car2);
+        service.addCar(name1);
+        service.addCar(name2);
 
         Assertions.assertRandomNumberInRangeTest(() -> service.playOneRound(), FORWARD, STOP);
-        assertThat(service.getCars().getFirst().getPosition()).isEqualTo(1);
-        assertThat(service.getCars().get(1).getPosition()).isZero();
-        assertThat(service.getWinningCars()).containsOnly(car1);
+        assertThat(service.getCars()).extracting(Car::getName, Car::getPosition)
+                .containsExactly(tuple(name1, 1), tuple(name2, 0));
+        assertThat(service.getWinningCars()).extracting(Car::getName, Car::getPosition)
+                .containsExactly(tuple(name1, 1));
     }
 }
