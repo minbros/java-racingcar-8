@@ -22,7 +22,7 @@ public class RacingService {
     /**
      * 한 회만큼 자동차 경주를 진행합니다.
      * <p>
-     * 자동차 개수만큼의 랜덤 값을 생성해 자동차의 이동에 사용합니다.
+     * 자동차 개수만큼의 0~9 범위의 랜덤 값을 생성해 자동차의 이동에 사용합니다.
      * </p>
      *
      * @see Cars#moveAll(List)
@@ -32,7 +32,10 @@ public class RacingService {
     }
 
     /**
-     * @throws IllegalArgumentException 자동차의 이름이 중복되는 경우
+     * @throws IllegalArgumentException <ul>
+     *                                  <li>자동차의 이름이 중복되는 경우</li>
+     *                                  <li>{@link Car#Car(String)} 생성자 검증 로직과 맞지 않는 경우</li>
+     *                                  </ul>
      * @see Cars#add(Car)
      */
     public void addCar(String name) {
@@ -50,7 +53,10 @@ public class RacingService {
     /**
      * 테스트용 메서드입니다. 자동차의 초기 위치를 지정할 수 있습니다.
      *
-     * @throws IllegalArgumentException 자동차의 이름이 중복되는 경우
+     * @throws IllegalArgumentException <ul>
+     *                                  <li>자동차의 이름이 중복되는 경우</li>
+     *                                  <li>{@link Car#Car(String, int)} 생성자 검증 로직과 맞지 않는 경우</li>
+     *                                  </ul>
      * @see Cars#add(Car)
      */
     void addCar(String name, int position) {
