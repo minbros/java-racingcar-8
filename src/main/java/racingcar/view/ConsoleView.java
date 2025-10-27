@@ -2,6 +2,7 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.domain.Car;
+import racingcar.util.InputParser;
 
 import java.util.List;
 
@@ -14,35 +15,25 @@ public class ConsoleView {
     private static final String PROMPT_FOR_COUNT = "시도할 횟수는 몇 회인가요?";
 
     /**
-     * 사용자로부터 구분자를 기준으로 이름들을 입력받습니다.
-     * <p>이름 규칙 관련 예외 처리는 진행하지 않으며, 입력 문법 관련 예외만 처리합니다.</p>
+     * 사용자로부터 자동차 이름들을 입력받습니다.
+     * <p>원시 입력 문자열을 반환하며, 파싱과 검증은 수행하지 않습니다.</p>
      *
-     * @return 파싱한 이름 리스트
-     * @throws IllegalArgumentException 이름의 구분이 잘못된 경우<br>
-     *                                  예시: ",min,bros" 또는 "min,bros," 또는 "min,,bros"
-     * @see InputParser#parseNames(String)
+     * @return 사용자가 입력한 원시 문자열
      */
-    public List<String> readCarNames() {
+    public String readCarNamesInput() {
         System.out.println(PROMPT_FOR_NAMES);
-        return InputParser.parseNames(Console.readLine());
+        return Console.readLine();
     }
 
     /**
      * 사용자로부터 게임 시행 횟수를 입력받습니다.
+     * <p>원시 입력 문자열을 반환하며, 파싱과 검증은 수행하지 않습니다.</p>
      *
-     * @return 정수로 파싱한 횟수값
-     * @throws IllegalArgumentException 입력받은 횟수가 다음과 같은 경우
-     *                                  <ul>
-     *                                      <li>양수가 아닌 경우</li>
-     *                                      <li>int 범위를 벗어날 경우</li>
-     *                                      <li>소수일 경우</li>
-     *                                      <li>"two"와 같이 숫자를 사용하지 않은 표현일 경우</li>
-     *                                  </ul>
-     * @see InputParser#parseCount(String)
+     * @return 사용자가 입력한 원시 문자열
      */
-    public int readCount() {
+    public String readCountInput() {
         System.out.println(PROMPT_FOR_COUNT);
-        return InputParser.parseCount(Console.readLine());
+        return Console.readLine();
     }
 
     /**

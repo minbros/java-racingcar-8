@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.util;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -53,3 +53,4 @@ class InputParserTest {
                 .hasMessageContaining(ErrorMessage.COUNT_MUST_BE_POSITIVE.getMessage());
     }
 }
+
