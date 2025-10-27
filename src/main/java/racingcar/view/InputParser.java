@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 유저 입력을 검증하는 유틸리티 클래스입니다.
+ * 유저 입력을 파싱 및 검증하는 유틸리티 클래스입니다.
  */
 final class InputParser {
     private InputParser() {
