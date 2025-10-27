@@ -47,6 +47,12 @@ public class RacingService {
         return cars.getWinningCars();
     }
 
+    /**
+     * 테스트용 메서드입니다. 자동차의 초기 위치를 지정할 수 있습니다.
+     *
+     * @throws IllegalArgumentException 자동차의 이름이 중복되는 경우
+     * @see Cars#add(Car)
+     */
     void addCar(String name, int position) {
         cars.add(new Car(name, position));
     }
