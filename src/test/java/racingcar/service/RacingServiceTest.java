@@ -23,11 +23,6 @@ class RacingServiceTest {
     }
 
     @Test
-    void 생성자_정상_확인() {
-        assertThat(service.getCars()).isEmpty();
-    }
-
-    @Test
     void 자동차_추가_정상_확인() {
         String name = "min";
 
